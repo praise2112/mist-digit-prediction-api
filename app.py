@@ -11,7 +11,8 @@ from PIL import Image, ImageFilter
 
 
 app = Flask(__name__)
-CORS(app, support_credentials=True)
+CORS(app)
+# CORS(app, support_credentials=True)
 
 mnist_model = load_model("model/keras_mnist_2Layer_adam_128BS_20epochs.h5", compile=False)
 
