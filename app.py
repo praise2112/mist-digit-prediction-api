@@ -73,7 +73,7 @@ def hello_world():
 
 
 @app.route('/predict', methods=['POST', 'GET', 'OPTIONS'])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 def predict():
     file = request.files['file']
     filename = secure_filename(file.filename)
