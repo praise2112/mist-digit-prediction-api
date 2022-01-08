@@ -23,7 +23,7 @@ def after_request(response):
     return response
 
 
-mnist_model = load_model("model/keras_mnist_2Layer_adam_128BS_20epochs.h5", compile=False)
+mnist_model = load_model("model/keras_mnist_2Layer_adam_128BS_20epochs.h5", compile=True)
 
 
 def imageprepare(argv):
@@ -121,21 +121,18 @@ def predict():
     x_ = imageprepare('temp/temp.png')  # file path here
     print(len(x_))  # mnist IMAGES are 28x28=784 pixels
     X_ = np.asarray(x_, dtype=np.float32)  # convert to numpy array
-
     # using our model to make predictions
-    import keras.backend.tensorflow_backend as tb
-    tb._SYMBOLIC_SCOPE.value = True
-    predicted = mnist_model.predict_proba(X_[newaxis, ...])
-    predicted2 = mnist_model.predict_classes(X_[newaxis, ...])
+    predicted_proba = mnist_model.predict(X_[newaxis, ...])
+    predicted = np.argmax(predicted_proba,axis=1)
 
     # os.remove(virtualPath)
 
     print(predicted)
     result_ = dict()
-    result_['prediction'] = predicted.tolist()
-    result_['pred'] = predicted2.tolist()
+    result_['prediction'] = predicted_proba.tolist()
+    result_['pred'] = predicted.tolist()
     return result_
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=80, threaded=False)
+    app.run(host='0.0.0.0', debug=True, port=5000, threaded=False)
