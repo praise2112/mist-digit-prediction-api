@@ -1,7 +1,7 @@
 numpy
 keras
 werkzeug
-# tensorflow
+tensorflow==1.15
 pillow
 Click
 Flask==2.0.2
