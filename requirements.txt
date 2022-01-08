@@ -1,7 +1,7 @@
 numpy
 keras
 werkzeug
-tensorflow==1.15
+https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.7.0-cp39-cp39-win_amd64.whl
 pillow
 Click
 Flask==2.0.2
