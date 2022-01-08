@@ -9,4 +9,4 @@ itsdangerous==2.0.1
 Jinja2==3.0.3
 MarkupSafe
 flask-cors==3.0.8
-https://storage.googleapis.com/tensorflow/windows/cpu/tensorflow_cpu-2.1.0-cp37-cp37m-win_amd64.whl
+https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow_cpu-2.7.0-cp39-cp39-manylinux2010_x86_64.whl
